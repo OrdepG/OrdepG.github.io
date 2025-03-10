@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 .hero {
   display: flex;
@@ -12,8 +13,14 @@
 }
 .thumbnails {
   margin: 10px 15px;
+  display: grid;
+  text-align: center;
 }
 .project1 {
   width: 480px;
   height: 270px;
+}
+
+.texto {
+  text-align: center;
 }
