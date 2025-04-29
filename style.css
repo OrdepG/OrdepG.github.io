@@ -93,12 +93,26 @@ h4 {
   display: grid;
   place-items: center;
   padding: 0;
+  transition: background 0.3s;
+  opacity: 1;
 }
 
 .pagination button:disabled {
-  background: #ccc;
-  color: #666;
+  background: #06b6d4;
+  color: white;
   cursor: not-allowed;
+}
+
+.thumbnails-grid.fade-out {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.thumbnails-grid.fade-in {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.3s ease;
 }
 
 .thumbnails-container img {

@@ -6,10 +6,22 @@ const projects = [
     link: "https://gradient-100.vercel.app/",
   },
   {
+    title: "Heart POP",
+    tech: "HTML, CSS e JS",
+    img: "/assets/project-15.png",
+    link: "https://project-15-100.vercel.app/",
+  },
+  {
     title: "Emojis",
     tech: "HTML, CSS e JS",
     img: "/assets/project-12.png",
     link: "https://project-12-100.vercel.app/",
+  },
+  {
+    title: "Calculator",
+    tech: "HTML, CSS e JS",
+    img: "/assets/project-14.png",
+    link: "https://project-14-100.vercel.app/",
   },
   {
     title: "Mudar Cores(Background)",
@@ -34,6 +46,12 @@ const projects = [
     tech: "HTML e CSS",
     img: "/assets/project-1.webp",
     link: "https://project-1-100.vercel.app/",
+  },
+  {
+    title: "Press a Key",
+    tech: "HTML, CSS e JS",
+    img: "/assets/project-13.png",
+    link: "https://project-13-100.vercel.app",
   },
   {
     title: "Creative Cards",
@@ -66,16 +84,16 @@ const projects = [
     link: "https://project-5-100.vercel.app",
   },
   {
-    title: "NOME DO PROJETO",
-    tech: "HTML e CSS",
-    img: "/assets/project-12.png",
-    link: "https://projects-12-100.vercel.app",
-  },
-  {
     title: "Accordion FAQ",
     tech: "HTML e CSS",
     img: "/assets/project-10.png",
     link: "https://project-10-100.vercel.app",
+  },
+  {
+    title: "Scrollbar",
+    tech: "HTML e CSS",
+    img: "/assets/project-3.webp",
+    link: "https://project-3-100.vercel.app/",
   },
   {
     title: "Scrollbar",
@@ -92,6 +110,10 @@ const itemsPerPage = 8;
 let currentPage = 1;
 
 function renderProjects(page) {
+wrapper.classList.remove("fade-in");
+wrapper.classList.add("fade-out");
+
+setTimeout(() => {
   wrapper.innerHTML = "";
   const start = (page - 1) * itemsPerPage;
   const end = start + itemsPerPage;
@@ -108,7 +130,12 @@ function renderProjects(page) {
       </div>
     `;
   });
+
+  wrapper.classList.remove("fade-out");
+  wrapper.classList.add("fade-in");
+}, 200);
 }
+
 
 function renderPagination() {
   const totalPages = Math.ceil(projects.length / itemsPerPage);
@@ -119,10 +146,10 @@ function renderPagination() {
   prevBtn.classList.add("round");
   prevBtn.disabled = currentPage === 1;
   prevBtn.addEventListener("click", () => {
-    if(currentPage > 1) {
-        currentPage--;
-        renderProjects(currentPage);
-        renderPagination();
+    if (currentPage > 1) {
+      currentPage--;
+      renderProjects(currentPage);
+      renderPagination();
     }
   });
   pagination.appendChild(prevBtn);
@@ -132,9 +159,9 @@ function renderPagination() {
     btn.innerText = i;
 
     if (i === currentPage) {
-        btn.classList.add("active");
+      btn.classList.add("active");
     }
-    
+
     btn.addEventListener("click", () => {
       currentPage = i;
       renderProjects(currentPage);
@@ -154,12 +181,7 @@ function renderPagination() {
     }
   });
   pagination.appendChild(nextBtn);
-
 }
 
 renderProjects(currentPage);
 renderPagination();
-
-
- 
-
